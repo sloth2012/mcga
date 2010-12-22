@@ -36,7 +36,16 @@ User defined R function subject to minimize. In the case of maximization type op
 }
 
 \value{
-Returnes the sorted population of the last iteration.
+Returnes the sorted population of the last iteration and the best solution vector.
+
+\item{population}{
+Resulted population matrix
+}
+
+\item{best}{
+Best vector of solutions.
+}
+
 }
 \author{
 Mehmet Hakan Satman <mhsatman@istanbul.edu.tr>
@@ -54,7 +63,7 @@ f<-function(x){
 
 m<-mcga(500,1,1,-1000000,1000000,100,evalFunc=f);
 
-print(m[1,]);
+print(m$best);
 
 
 
@@ -72,9 +81,9 @@ y<-5+5*x+e;
 m<-mcga(popsize=500, chsize=2, minval=-9999999, maxval=9999999, evalFunc=f, maxiter=50)
 
 print("Best solution for LMS:")
-print(m[1,])
+print(m$best)
 print("Cost is:")
-print(f(m[1,]))
+print(f(m$best))
 
 
 
