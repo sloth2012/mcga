@@ -4,6 +4,8 @@
 #include <cstring>
 #include "ga.h"
 
+using namespace std;
+
 /*
 Implementation of Chromosome Class
 */
