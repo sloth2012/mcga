@@ -7,8 +7,15 @@
 /*
 Implementation of Chromosome Class
 */
-Chromosome::Chromosome(){
+Chromosome::~Chromosome(){
+    //printf("Clean values...\n");
 
+    if (this->values != NULL)    
+        delete this->values;
+}
+
+Chromosome::Chromosome(){
+    this->values=NULL;
 }
 
 Chromosome::Chromosome(int chsize){
@@ -39,10 +46,6 @@ void Chromosome::randomize(double min, double max){
     }
 }
 
-Chromosome::~Chromosome(){
-
-}
-
 void Chromosome::setChromosomeSize(int size){
     this->chsize=size;
     this->values=new double[chsize];
@@ -58,6 +61,9 @@ Implementation of GA Class
 */
 
 GA::~GA(){
+    //printf("Clean chromosomes...\n");
+    delete[] this->chromosomes;
+    delete[] this->tempchromosomes;
 }
 
 GA::GA(int popsize, int chsize, int elitism, double crossprob, double mutateprob){
@@ -177,7 +183,7 @@ void GA::Selection(){
     Chromosome *tmpc=this->tempchromosomes, *c1, *c2;
     this->sortPopulation();
     for (int i=0;i<this->elitism;i++){
-        *tmpc=this->chromosomes[i];
+        *tmpc=this->tempchromosomes[i];
         m++;
         tmpc++;
     }
