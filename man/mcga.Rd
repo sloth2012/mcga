@@ -1,91 +1,72 @@
 \name{mcga}
 \alias{mcga}
+
 \title{
-mcga
+Performs machine coded genetic algorithms on a function subject to be minimized.
 }
 \description{
-mcga package uses machine coded chromosomes for the real value optimization problems. Chromosomes are not encoded/decoded, the byte representation of the double values are used for crossing-over and mutation operations. This makes mcga extremely fast even the number of parameters is high. Values of the parameters are bounded with the machine double type.
-
-mcga function is a wrapper for the C++ library. 
+Machine coded genetic algorithm (MCGA) is a fast tool for real-valued optimization problems. It uses the byte representation of variables rather than real-values. It performs the classical crossover operations (uniform) on these byte representations. Mutation operator is also similar to classical mutation operator, which is to say, it changes a randomly selected byte value of a chromosome by +1 or -1 with probability 1/2. In MCGAs there is no need for encoding-decoding process and the classical operators are directly applicable on real-values. It is fast and can handle a wide range of a search space with high precision. Using a 256-unary alphabet is the main disadvantage of this algorithm but a moderate size population is convenient for many problems.
 }
 \usage{
-mcga(popsize, chsize, elitism = 1, minval, maxval, maxiter = 10, evalFunc)
+mcga(popsize, chsize, crossprob = 1.0, mutateprob = 0.01, elitism = 1, minval, maxval, maxiter = 10, evalFunc)
 }
+%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{popsize}{
-Length of the population (The number of chromosomes in the population).
+Number of chromosomes. 
 }
   \item{chsize}{
-Length of the chromosomes (How many variables does a chromosome holds).
+Number of parameters.
+}
+  \item{crossprob}{
+Crossover probability. By default it is 1.0
+}
+  \item{mutateprob}{
+Mutation probability. By default it is 0.01
 }
   \item{elitism}{
-Best 'elitism' chromosomes will be copeid into next population.
+Number of best chromosomes to be copied directly into next generation. By default it is 1
 }
   \item{minval}{
-Lower bound for the variables. This bound is only used when the chromosomes are randomized at the beginning of the algorithm.
+The lower bound of the randomized initial population. This is not a constraint for parameters.
 }
   \item{maxval}{
-Lower bound for the variables. This bound is only used when the chromosomes are randomized at the beginning of the algorithm.
+The upper bound of the randomized initial population. This is not a constraint for parameters.
 }
   \item{maxiter}{
-Number of generations.
+The maximum number of generations. By default it is 10
 }
   \item{evalFunc}{
-User defined R function subject to minimize. In the case of maximization type optimizations, this function may return -1 * cost.
+An R function. By default, each problem is a minimization. 
 }
 }
-
 \value{
-Returnes the sorted population of the last iteration and the best solution vector.
-
-\item{population}{
-Resulted population matrix
-}
-
-\item{best}{
-Best vector of solutions.
-}
-
+\item{population}{Sorted population resulted after generations}
+\item{costs}{Cost values for each chromosomes in the resulted population}
 }
 \author{
-Mehmet Hakan Satman <mhsatman@istanbul.edu.tr>
+Mehmet Hakan Satman - mhsatman@istanbul.edu.tr
 }
-
 
 
 \examples{
-#Examples
+# A sample optimization problem
+# Min f(xi) = (x1-7)^2 + (x2-77)^2 + (x3-777)^2 + (x4-7777)^2 + (x5-77777)^2
+# The range of xi is unknown. The solution is
+# x1 = 7
+# x2 = 77
+# x3 = 777
+# x4 = 7777
+# x5 = 77777
+# Min f(xi) = 0
+require("mcga")
 
-#Evolution of PI
 f<-function(x){
-        return(abs(x-pi));
+   return ((x[1]-7)^2 + (x[2]-77)^2 +(x[3]-777)^2 +(x[4]-7777)^2 +(x[5]-77777)^2)
 }
 
-m<-mcga(500,1,1,-1000000,1000000,100,evalFunc=f);
-
-print(m$best);
-
-
-
-#Calculation LMS (Least median of squares) estimates
-f<-function(candidates){
-        res<-y-candidates[1]-candidates[2]*x
-        return(median(res^2));
-}
-
-n<-100;
-x<-rnorm(n);
-e<-rnorm(n);
-y<-5+5*x+e;
-
-m<-mcga(popsize=500, chsize=2, minval=-9999999, maxval=9999999, evalFunc=f, maxiter=50)
-
-print("Best solution for LMS:")
-print(m$best)
-print("Cost is:")
-print(f(m$best))
-
-
-
-
+m<-mcga(popsize=200, chsize=5, minval=0.0, maxval=999999999.9, maxiter=2500, crossprob=1.0, mutateprob=0.01, evalFunc=f)
+cat("Best chromosome:\n")
+print(m$population[1,])
+cat("Cost: ",m$costs[1],"\n")
 }
