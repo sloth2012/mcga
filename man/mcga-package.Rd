@@ -11,8 +11,8 @@ Machine coded genetic algorithm (MCGA) is a fast tool for real-valued optimizati
 \tabular{ll}{
 Package: \tab mcga\cr
 Type: \tab Package\cr
-Version: \tab 2.0\cr
-Date: \tab 2011-06-20\cr
+Version: \tab 2.0.1\cr
+Date: \tab 2011-06-25\cr
 License: \tab GPL\cr
 LazyLoad: \tab yes\cr
 }

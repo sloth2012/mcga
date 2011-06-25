@@ -210,6 +210,7 @@ void mcga_sortpopulation(struct Mcga *mcga)
 void mcga_fill_chromosome (struct Mcga *mcga, struct Chromosome *c, int idx)
 {
     int i;
+	if(c->ch_size != mcga->ch_size) return;
     for (i=0; i<c->ch_size; i++)
     {
         mcga->chromosomes[idx].genes[i] = c->genes[i];
