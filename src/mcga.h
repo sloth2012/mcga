@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+#include <R_ext/PrtUtil.h> /* Rprintf */
+
+/*
 #include <assert.h>
+*/
+
 
 #define FALSE 0
 #define TRUE 1
@@ -170,3 +176,4 @@ min and max: Parameters of a uniform distribution for randomized initial populat
 In the file main.c, there is a simple usage of mcga_start().
 */
 void mcga_start(struct Mcga *mcga, struct Mcga *temppop, int maxiter, double min, double max);
+

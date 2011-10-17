@@ -7,13 +7,15 @@ struct Mcga *mcga_create (int popsize, int chsize, double crossprob, double muta
 
     struct Mcga *mcga = malloc (sizeof(struct Mcga));
 
+	 /*
+	 We are removing 'assert' lines for version 2.14
     assert(mcga!=NULL);
     assert(crossprob>=0.0 && crossprob<=1.0);
     assert(mutateprob>=0.0 && mutateprob<=1.0);
     assert(elitism>=0 && elitism<popsize);
     assert(popsize>=2);
     assert(chsize>=1);
-
+	 */
     mcga->pop_size=popsize;
     mcga->ch_size = chsize;
     mcga->cross_type=crosstype;
@@ -22,13 +24,13 @@ struct Mcga *mcga_create (int popsize, int chsize, double crossprob, double muta
     mcga->elitism = elitism;
 
     mcga->chromosomes = malloc(sizeof(struct Chromosome) * popsize);
-    assert(mcga->chromosomes != NULL);
+    /* assert(mcga->chromosomes != NULL); */
 
     for (i=0; i<popsize; i++)
     {
         mcga->chromosomes[i].ch_size = chsize;
         mcga->chromosomes[i].genes = malloc (sizeof(double) * chsize);
-        assert(mcga->chromosomes[i].genes != NULL);
+        /* assert(mcga->chromosomes[i].genes != NULL); */
         mcga->chromosomes[i].cost = 0.0;
     }
 
@@ -57,10 +59,10 @@ void mcga_dump_chromosome_chars(struct Chromosome *c)
     unsigned char *ch = (unsigned char*)c->genes;
     for (i=0; i< ((c->ch_size) * sizeof(double)); i++)
     {
-        printf("%d ", *ch);
+        Rprintf("%d ", *ch);
         ch++;
     }
-    puts("");
+    Rprintf("\n");
 }
 
 void mcga_dump_chromosome (struct Chromosome *c, int idx)
@@ -69,9 +71,9 @@ void mcga_dump_chromosome (struct Chromosome *c, int idx)
     printf("%d)[%.3f] ",idx,c->cost);
     for(j=0; j<c->ch_size; j++)
     {
-        printf("%.5f ",c->genes[j]);
+        Rprintf("%.5f ",c->genes[j]);
     }
-    puts("");
+    Rprintf("");
 }
 
 
@@ -116,7 +118,7 @@ void mcga_calculate_fitness(struct Mcga* mcga)
     int i;
     for (i =0; i<mcga->pop_size; i++)
     {
-        assert(mcga->chromosomes[i].genes!=NULL);
+        /* assert(mcga->chromosomes[i].genes!=NULL); */
         mcga->chromosomes[i].cost = mcga->cost_function(&mcga->chromosomes[i]);
     }
 }
@@ -310,9 +312,10 @@ rebuildIndexes2:
 
 void mcga_start(struct Mcga *mcga, struct Mcga *temppop, int maxiter, double min, double max)
 {
-    assert(mcga != NULL);
+    /*
+	 assert(mcga != NULL);
     assert(temppop != NULL);
-    //assert(maxiter > 0);
+    */
     mcga->max_iter = maxiter;
 
     mcga_randomize(mcga, min, max);
