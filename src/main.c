@@ -4,8 +4,6 @@
 #include <time.h>
 #include <sys/timeb.h>
 #include "mcga.h"
-#include "dejong.h"
-#include "dejongcosts.h"
 
 /*
 This sample function has 5 parameters and has a global minimum of 0.0
