@@ -68,7 +68,7 @@ void mcga_dump_chromosome_chars(struct Chromosome *c)
 void mcga_dump_chromosome (struct Chromosome *c, int idx)
 {
     int j;
-    printf("%d)[%.3f] ",idx,c->cost);
+    Rprintf("%d)[%.3f] ",idx,c->cost);
     for(j=0; j<c->ch_size; j++)
     {
         Rprintf("%.5f ",c->genes[j]);

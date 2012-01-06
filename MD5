@@ -1,4 +1,4 @@
-fbda08e8c50e9d61e80224928d7d10d5 *DESCRIPTION
+6caca519c4c8c154a3a9ea583bac3b36 *DESCRIPTION
 9fdfeb11f7ddba6f3aab9aaa6b1ac5dd *NAMESPACE
 45b42f54fcfeb4a11bda418228b3f33e *R/newmcga.r
 e7522a2d570b9fcfb42bb9e94e1da1fc *R/zzz.r
@@ -8,7 +8,7 @@ feed5e9c503e3fd1ac951a7d2adf5080 *man/mcga-internal.Rd
 929ba98d6c5f3b358e05dcba8d5cbc6e *man/multi_mcga.Rd
 31330182860816624c4aa6b604367255 *src/main.c
 d41d8cd98f00b204e9800998ecf8427e *src/main.h
-ddac0a81c910f48d81aecb3522527eec *src/mcga.c
+1ac116a67c1fff4dac2478fbe331e7f1 *src/mcga.c
 fa8f6c86f5e7f86d53d9a406c57524d4 *src/mcga.h
 3a2bc2125b19bea7d909411567cfad09 *src/multi_mcga.c
 6d3d4ec781ea952494b4c70486b8b2ea *src/multi_mcga.h
