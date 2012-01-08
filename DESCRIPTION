@@ -2,8 +2,8 @@ Package: mcga
 Type: Package
 Title: Machine coded genetic algorithms for real-valued optimization
         problems
-Version: 2.0.4
-Date: 2012-01-06
+Version: 2.0.5
+Date: 2012-01-08
 Author: Mehmet Hakan Satman
 Maintainer: Mehmet Hakan Satman <mhsatman@istanbul.edu.tr>
 Description: Machine coded genetic algorithm (MCGA) is a fast tool for
@@ -25,5 +25,5 @@ Description: Machine coded genetic algorithm (MCGA) is a fast tool for
 License: GPL
 LazyLoad: yes
 Repository: CRAN
-Date/Publication: 2012-01-06 21:02:41
-Packaged: 2012-01-06 20:56:43 UTC; hako
+Date/Publication: 2012-01-09 06:04:46
+Packaged: 2012-01-08 19:38:51 UTC; hako

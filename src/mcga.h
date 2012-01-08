@@ -10,8 +10,9 @@
 #define _MCGA_H_ 1
 #endif
 
-#ifndef _TYPES_H_
-#include "types.h"
+#ifndef _MCGATYPES_H_
+#define _MCGATYPES_H_ 1
+#include "mcgatypes.h"
 #endif
 
 /*
