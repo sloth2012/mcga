@@ -1,7 +1,7 @@
-e1db37089f3620d8b31e65cb2b1bf4bd *DESCRIPTION
-9fdfeb11f7ddba6f3aab9aaa6b1ac5dd *NAMESPACE
+76bda0fad4d0830486c2d6abf3738c4d *DESCRIPTION
+a4f13c391ac33bb23bd855feec4f1bd0 *NAMESPACE
 45b42f54fcfeb4a11bda418228b3f33e *R/newmcga.r
-e7522a2d570b9fcfb42bb9e94e1da1fc *R/zzz.r
+462ce544d8422a523bc37b7b310f1d59 *R/zzz.r
 feed5e9c503e3fd1ac951a7d2adf5080 *man/mcga-internal.Rd
 63b12fe3cd963c307f1a964634bd208c *man/mcga-package.Rd
 12bccafd97a28e96af0daae74477985e *man/mcga.Rd

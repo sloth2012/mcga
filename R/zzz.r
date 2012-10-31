@@ -1,7 +1,7 @@
-".First.lib" <-function (lib, pkg)
-{
+# Commented since R 2.15
+#".First.lib" <-function (lib, pkg)
+#{
 #cat ("Loading package: Lib is ",lib, " and Pack is ",pack,"\n");
 #Loading C library
-  library.dynam ("mcga", pkg, lib);
-
-}
+#  library.dynam ("mcga", pkg, lib);
+#}

@@ -2,8 +2,8 @@ Package: mcga
 Type: Package
 Title: Machine coded genetic algorithms for real-valued optimization
         problems
-Version: 2.0.5
-Date: 2012-01-08
+Version: 2.0.6
+Date: 2012-10-31
 Author: Mehmet Hakan Satman
 Maintainer: Mehmet Hakan Satman <mhsatman@istanbul.edu.tr>
 Description: Machine coded genetic algorithm (MCGA) is a fast tool for
@@ -19,11 +19,12 @@ Description: Machine coded genetic algorithm (MCGA) is a fast tool for
         wide range of a search space with high precision. Using a
         256-unary alphabet is the main disadvantage of this algorithm
         but a moderate size population is convenient for many problems.
-	Package also includes multi_mcga function for multi objective
-	optimization problems. This function sorts the chromosomes using
-	their ranks calculated from the non-dominated sorting algorithm.
+        Package also includes multi_mcga function for multi objective
+        optimization problems. This function sorts the chromosomes
+        using their ranks calculated from the non-dominated sorting
+        algorithm.
 License: GPL
 LazyLoad: yes
 Repository: CRAN
-Date/Publication: 2012-01-09 06:04:46
-Packaged: 2012-01-08 19:38:51 UTC; hako
+Date/Publication: 2012-10-31 09:31:45
+Packaged: 2012-10-31 09:19:32 UTC; hako
