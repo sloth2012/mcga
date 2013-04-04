@@ -47,7 +47,9 @@ An R function. By default, each problem is a minimization.
 \author{
 Mehmet Hakan Satman - mhsatman@istanbul.edu.tr
 }
-
+\references{
+M.H.Satman (2013), Machine Coded Genetic Algorithms for Real Parameter Optimization Problems, Gazi University Journal of Science, Vol 26, No 1, pp. 85-95
+}
 
 \examples{
 # A sample optimization problem

@@ -55,6 +55,12 @@ with dimension of numfunc. Each element of this vector points to the correspondi
 Mehmet Hakan Satman - mhsatman@istanbul.edu.tr
 }
 
+\references{
+Deb, K. (2000). An efficient constraint handling method for
+     genetic algorithms. Computer methods in applied mechanics and
+     engineering, 186(2), 311-338.
+}
+
 
 \examples{
 # We have two objective functions.
