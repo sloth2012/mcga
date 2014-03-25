@@ -11,7 +11,8 @@ This function performs multi objective optimization using the same logic underly
 objective values using a non-dominated sorting algorithm. 
 }
 \usage{
-multi_mcga(popsize, chsize, crossprob = 1.0, mutateprob = 0.01, elitism = 1, minval, maxval, maxiter = 10, numfunc, evalFunc)
+multi_mcga(popsize, chsize, crossprob = 1.0, mutateprob = 0.01, 
+		   elitism = 1, minval, maxval, maxiter = 10, numfunc, evalFunc)
 }
 \arguments{
   \item{popsize}{
@@ -63,31 +64,32 @@ Deb, K. (2000). An efficient constraint handling method for
 
 
 \examples{
-# We have two objective functions.
-f1<-function(x){
-  return(sin(x))
-}
+\dontrun{
+ # We have two objective functions.
+ f1<-function(x){
+   return(sin(x))
+ }
 
-f2<-function(x){
-  return(sin(2*x))
-}
+ f2<-function(x){
+   return(sin(2*x))
+ }
 
-# This function returns a vector of cost functions for a given x sent from mcga
-f<-function(x){
-  return ( c( f1(x), f2(x)) )
-}
+ # This function returns a vector of cost functions for a given x sent from mcga
+ f<-function(x){
+   return ( c( f1(x), f2(x)) )
+ }
 
-# main loop
-m<-multi_mcga(popsize=200, chsize=1, minval= 0, elitism=2, 
-	      maxval= 2.0 * pi, maxiter=1000, crossprob=1.0, 
+ # main loop
+ m<-multi_mcga(popsize=200, chsize=1, minval= 0, elitism=2, 
+ 	      maxval= 2.0 * pi, maxiter=1000, crossprob=1.0, 
 	      mutateprob=0.01, evalFunc=f, numfunc=2)
 
-# Points show best five solutions. 
-curve(f1, 0, 2*pi)
-curve(f2, 0, 2*pi, add=TRUE)
+ # Points show best five solutions. 
+ curve(f1, 0, 2*pi)
+ curve(f2, 0, 2*pi, add=TRUE)
 
-p <- m$population[1:5,]
-points(p, f1(p))
-points(p, f2(p))
-
+ p <- m$population[1:5,]
+ points(p, f1(p))
+ points(p, f2(p))
+}
 }

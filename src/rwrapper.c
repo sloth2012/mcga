@@ -37,10 +37,11 @@ mcga (SEXP popsize, SEXP chsize, SEXP crossp, SEXP mutatep, SEXP elitism,
 	    {
 	      NUMERIC_POINTER (par)[h] = mcga->chromosomes[j].genes[h];
 	    }
-	  fn = lang2 (evalFunc, par);
-	  sexp_fvec = eval (fn, env);
+	  fn = PROTECT(lang2 (evalFunc, par));
+	  sexp_fvec = PROTECT(eval (fn, env));
 	  currentfitness = NUMERIC_POINTER (sexp_fvec)[0];
 	  mcga->chromosomes[j].cost = currentfitness;
+	  UNPROTECT(2);
 	}
     }
 
@@ -102,13 +103,14 @@ multi_mcga (SEXP popsize, SEXP chsize, SEXP crossp, SEXP mutatep, SEXP elitism,
 	    {
 	      NUMERIC_POINTER (par)[h] = mcga->chromosomes[j].genes[h];
 	    }
-	  fn = lang2 (evalFunc, par);
-	  sexp_fvec = eval (fn, env);
+	  fn = PROTECT(lang2 (evalFunc, par));
+	  sexp_fvec = PROTECT(eval (fn, env));
 	  /* currentfitness = NUMERIC_POINTER (sexp_fvec); */
 	  /* mcga->chromosomes[j].cost = currentfitness; */
 	 for (int h=0; h<numfunc1; h++){
 		mcga->chromosomes[j].cost[h]=NUMERIC_POINTER(sexp_fvec)[h];
 	  }
+	  UNPROTECT(2);
 	}
       multi_mcga_calculate_ranks(mcga);
     }
