@@ -1,5 +1,7 @@
 #include "mcga.h"
-
+#include <R.h>
+#include <Rinternals.h>
+#include <Rmath.h>
 
 struct Mcga *mcga_create (int popsize, int chsize, double crossprob, double mutateprob, int crosstype, int elitism, double (*cost_function)(struct Chromosome*))
 {
@@ -94,7 +96,8 @@ void mcga_randomize(struct Mcga *mcga, double min, double max)
     {
         for (j=0; j<mcga->ch_size; j++)
         {
-            mcga->chromosomes[i].genes[j] = min + ((double)rand() / RAND_MAX) * (max-min);
+            //mcga->chromosomes[i].genes[j] = min + ((double)rand() / RAND_MAX) * (max-min);
+            mcga->chromosomes[i].genes[j] = runif(min, max);
             mcga->chromosomes[i].cost = 0.0;
         }
     }
@@ -130,11 +133,13 @@ void mcga_mutate(struct Chromosome *c,  double prob)
     for (i = 0 ; i< (sizeof(double)* c->ch_size); i++)
     {
         /* will mutate current byte? */
-        if ( ((double)rand() / RAND_MAX)<prob)
+        //if ( ((double)rand() / RAND_MAX)<prob)
+        if ( runif(0.0,1.0) < prob)
         {
             /* Mutate upwards or downwards ?*/
             //int amount = (int)(((double)rand() / RAND_MAX) * 255);
-            if ( ((double)rand() / RAND_MAX)< 0.5)
+            //if ( ((double)rand() / RAND_MAX)< 0.5)
+            if ( runif(0.0,1.0) < 0.5)
             {
                 (*pch)+= 1; //amount;
             }
@@ -153,7 +158,8 @@ void mcga_onepoint_crossover (struct Chromosome *c1, struct Chromosome *c2)
     unsigned char *pch1 = (unsigned char*) c1->genes;
     unsigned char *pch2 = (unsigned char*) c2->genes;
     unsigned char tmpch;
-    int cutpoint = (int)(((double)rand() / RAND_MAX) * c1->ch_size);
+    //int cutpoint = (int)(((double)rand() / RAND_MAX) * c1->ch_size);
+    int cutpoint = (int)(runif(0,1) * c1->ch_size);
     int i;
     pch1 += cutpoint;
     pch2 += cutpoint;
@@ -176,7 +182,8 @@ void mcga_uniform_crossover (struct Chromosome *c1, struct Chromosome *c2)
     int i;
     for (i = 0; i < sizeof(double) * c1->ch_size ; i++)
     {
-        if( ((double) rand() / RAND_MAX) < 0.5)
+        //if( ((double) rand() / RAND_MAX) < 0.5)
+        if( runif(0,1) < 0.5)
         {
             tmpch = *pch1;
             *pch1 = *pch2;
@@ -253,12 +260,17 @@ void mcga_tournament_selection (struct Mcga *source, struct Mcga *target)
     while(totalselected < source->pop_size)
     {
 rebuildIndexes1:
-        idx1 = (int)(((double)rand() / RAND_MAX) * source->pop_size);
-        idx2 = (int)(((double)rand() / RAND_MAX) * source->pop_size);
+        //idx1 = (int)(((double)rand() / RAND_MAX) * source->pop_size);
+        //idx2 = (int)(((double)rand() / RAND_MAX) * source->pop_size);
+        idx1 = (int)(runif(0,1) * source->pop_size);
+        idx2 = (int)(runif(0,1) * source->pop_size);
         if(idx1 == idx2) goto rebuildIndexes1;
 rebuildIndexes2:
-        idx3 = (int)(((double)rand() / RAND_MAX) * source->pop_size);
-        idx4 = (int)(((double)rand() / RAND_MAX) * source->pop_size);
+        //idx3 = (int)(((double)rand() / RAND_MAX) * source->pop_size);
+        //idx4 = (int)(((double)rand() / RAND_MAX) * source->pop_size);
+        idx3 = (int)(runif(0,1) * source->pop_size);
+        idx4 = (int)(runif(0,1) * source->pop_size);
+
         if(idx3 == idx4) goto rebuildIndexes2;
 
         if(source->chromosomes[idx1].cost < source->chromosomes[idx2].cost )
@@ -292,7 +304,8 @@ rebuildIndexes2:
         /*
         Crossing over
         */
-        if( ((double) rand() / RAND_MAX) < source->cross_prob)
+        //if( ((double) rand() / RAND_MAX) < source->cross_prob)
+        if( runif(0,1) < source->cross_prob)
         {
             if(source->cross_type == UNIFORM_CROSS_OVER)
             {

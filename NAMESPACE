@@ -1,6 +1,9 @@
-# Default NAMESPACE created by R
-# Remove the previous line if you edit this file
-
 # Export all names
-exportPattern(".")
-useDynLib("mcga")
+useDynLib(mcga)
+exportPattern("^[[:alpha:]]+")
+
+importFrom(Rcpp, evalCpp)
+importFrom("stats", "runif")
+import(GA)
+
+

@@ -53,7 +53,6 @@ M.H.Satman (2013), Machine Coded Genetic Algorithms for Real Parameter Optimizat
 }
 
 \examples{
-\dontrun{
 # A sample optimization problem
 # Min f(xi) = (x1-7)^2 + (x2-77)^2 + (x3-777)^2 + (x4-7777)^2 + (x5-77777)^2
 # The range of xi is unknown. The solution is
@@ -79,5 +78,4 @@ require("mcga")
  cat("Best chromosome:\n")
  print(m$population[1,])
  cat("Cost: ",m$costs[1],"\n")
-}
 }
