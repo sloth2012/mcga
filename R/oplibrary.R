@@ -456,7 +456,7 @@ unfair_average_crossover <- function (object, parents, ...){
 #' @param elitism Number of elitist solutions. It is \code{base::max(1, round(popSize*0.05))} by default
 #' @param maxiter Maximum number of generations. It is 100 by default
 #' @param run The genetic search is stopped if the best solution has not any improvements in last \code{run} generations. By default it is \code{maxiter}
-#' @param maxfitness Upper bound of the fitness function. By default it is Inf
+#' @param maxFitness Upper bound of the fitness function. By default it is Inf
 #' @param names Vector of names of the variables. By default it is \code{NULL}
 #' @param parallel If TRUE, fitness calculations are performed parallel. It is FALSE by default
 #' @param monitor The monitoring function for printing some information about the current state of the genetic search. It is \code{gaMonitor} by default
@@ -484,14 +484,14 @@ mcga2 <- function(fitness, ...,
         elitism = base::max(1, round(popSize*0.05)), 
         maxiter = 100,
         run = maxiter,
-        maxfitness = Inf,
+        maxFitness = Inf,
         names = NULL,
         parallel = FALSE,
         monitor = gaMonitor,
         seed = NULL){
 
 
-myga <- ga(type = "real-valued", fitness = fitness, ..., min = min, max = max, population = population, selection = selection, crossover = crossover, mutation = mutation, popSize = popSize, pcrossover = pcrossover, pmutation = pmutation, elitism = elitism, maxiter = maxiter, run = run, maxfitness = maxfitness, names = names, parallel = parallel, monitor = monitor, seed = seed)
+myga <- ga(type = "real-valued", fitness = fitness, ..., min = min, max = max, population = population, selection = selection, crossover = crossover, mutation = mutation, popSize = popSize, pcrossover = pcrossover, pmutation = pmutation, elitism = elitism, maxiter = maxiter, run = run, maxFitness = maxFitness, names = names, parallel = parallel, monitor = monitor, seed = seed)
 
 return(myga)
 }

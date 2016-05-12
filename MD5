@@ -1,8 +1,8 @@
-77dd0386f2ee26d33a96b6ecb817a398 *DESCRIPTION
+e8d1d5ab2009c9e42feee97e06a2576c *DESCRIPTION
 e65fd2215dfa4554ae2f3202eba7a7a1 *NAMESPACE
 628d0d6634ea52cdae3aab55b295a8e6 *R/RcppExports.R
 45b42f54fcfeb4a11bda418228b3f33e *R/newmcga.r
-cb8255d2ccba7ef66853face5fa16ec4 *R/oplibrary.R
+b27466bbc40d14d51d79cfe9c757c6db *R/oplibrary.R
 1ebfd1f6a8089514b71f3ae451011a63 *R/zzz.r
 7c3e7e9d8d577b92676c98565f970286 *inst/CITATION
 fae259df85fed7817e3e7378aca9521d *man/ByteCodeMutation.Rd
@@ -37,7 +37,7 @@ dcbd68126122bd9492bc78c333d8c18c *man/linear_crossover.Rd
 feed5e9c503e3fd1ac951a7d2adf5080 *man/mcga-internal.Rd
 d3bc34058490354bde383191adc654ba *man/mcga-package.Rd
 9b02a842911b787b639f15641a000af0 *man/mcga.Rd
-a3b34e34e82176ad0307d6b464c3d77e *man/mcga2.Rd
+57c6c7577af5ddae7415489f49665654 *man/mcga2.Rd
 9a8e71e821defafe179dae34b9092ed4 *man/multi_mcga.Rd
 9053363a3c57022e5f7fbe82c07709c0 *man/sbx_crossover.Rd
 89cbfec000c6fc82e41974fbe93efa03 *man/unfair_average_crossover.Rd

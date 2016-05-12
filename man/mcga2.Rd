@@ -9,7 +9,7 @@ mcga2(fitness, ..., min, max,
   selection = gaControl("real-valued")$selection,
   crossover = byte_crossover, mutation = byte_mutation, popSize = 50,
   pcrossover = 0.8, pmutation = 0.1, elitism = base::max(1, round(popSize
-  * 0.05)), maxiter = 100, run = maxiter, maxfitness = Inf,
+  * 0.05)), maxiter = 100, run = maxiter, maxFitness = Inf,
   names = NULL, parallel = FALSE, monitor = gaMonitor, seed = NULL)
 }
 \arguments{
@@ -42,7 +42,7 @@ mcga2(fitness, ..., min, max,
 
 \item{run}{The genetic search is stopped if the best solution has not any improvements in last \code{run} generations. By default it is \code{maxiter}}
 
-\item{maxfitness}{Upper bound of the fitness function. By default it is Inf}
+\item{maxFitness}{Upper bound of the fitness function. By default it is Inf}
 
 \item{names}{Vector of names of the variables. By default it is \code{NULL}}
 
