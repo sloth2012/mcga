@@ -1,4 +1,4 @@
-Package: mcga
+Package: mcgaqt
 Type: Package
 Title: Machine Coded Genetic Algorithms for Real-Valued Optimization
         Problems

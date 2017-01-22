@@ -5,7 +5,7 @@
 #include "multi_mcga.h"
 
 SEXP
-mcga (SEXP popsize, SEXP chsize, SEXP crossp, SEXP mutatep, SEXP elitism,
+mcgaqt (SEXP popsize, SEXP chsize, SEXP crossp, SEXP mutatep, SEXP elitism,
       SEXP min, SEXP max, SEXP maxiter, SEXP par, SEXP best, SEXP evalFunc,
       SEXP population, SEXP costs, SEXP env)
 {
@@ -71,7 +71,7 @@ mcga (SEXP popsize, SEXP chsize, SEXP crossp, SEXP mutatep, SEXP elitism,
 
 
 SEXP
-multi_mcga (SEXP popsize, SEXP chsize, SEXP crossp, SEXP mutatep, SEXP elitism,
+multi_mcgaqt (SEXP popsize, SEXP chsize, SEXP crossp, SEXP mutatep, SEXP elitism,
       SEXP min, SEXP max, SEXP maxiter, SEXP par, SEXP best, SEXP evalFunc, SEXP numfunc,
       SEXP population, SEXP costs, SEXP ranks, SEXP env)
 {

@@ -8,7 +8,7 @@
 
 
 .onAttach <- function(lib, pkg){
-  packageStartupMessage("Please use 'citation(\"mcga\")' for citing the R package mcga")
+  packageStartupMessage("Please use 'citation(\"mcgaqt\")' for citing the R package mcga")
   invisible()
 }
 

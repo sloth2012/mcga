@@ -1,6 +1,6 @@
 # R File
 # This is a wrapper file for the C library
-mcga <-function (popsize, chsize, crossprob = 1.0, mutateprob =
+mcgaqt <-function (popsize, chsize, crossprob = 1.0, mutateprob =
 		  0.01, elitism = 1, minval, maxval, maxiter = 10, evalFunc)
 {
 
@@ -9,9 +9,9 @@ mcga <-function (popsize, chsize, crossprob = 1.0, mutateprob =
   population <-as.double(rep (0, chsize * popsize));
   costs <-as.double(rep (0, popsize));
   envv <-.GlobalEnv;
-  result <-.Call ("mcga", popsize, chsize, crossprob, mutateprob, elitism,
+  result <-.Call ("mcgaqt", popsize, chsize, crossprob, mutateprob, elitism,
 		   minval, maxval, maxiter, par, best, evalFunc, population,
-		   costs, envv, PACKAGE = "mcga");
+		   costs, envv, PACKAGE = "mcgaqt");
   resmat <-matrix (population, ncol = chsize, nrow = popsize);
   return (list
 	  (population =
@@ -22,7 +22,7 @@ mcga <-function (popsize, chsize, crossprob = 1.0, mutateprob =
 }
 
 
-multi_mcga <-function (popsize, chsize, crossprob = 1.0, mutateprob =
+multi_mcgaqt <-function (popsize, chsize, crossprob = 1.0, mutateprob =
                   0.01, elitism = 1, minval, maxval, maxiter = 10, numfunc, evalFunc)
 {
 
@@ -34,7 +34,7 @@ multi_mcga <-function (popsize, chsize, crossprob = 1.0, mutateprob =
   envv <-.GlobalEnv;
   result <-.Call ("multi_mcga", popsize, chsize, crossprob, mutateprob, elitism,
                    minval, maxval, maxiter, par, best, evalFunc, numfunc,  population,
-                   costs, ranks, envv, PACKAGE = "mcga");
+                   costs, ranks, envv, PACKAGE = "mcgaqt");
   resmat <-matrix (population, ncol = chsize, nrow = popsize);
   return (list
           (population =
